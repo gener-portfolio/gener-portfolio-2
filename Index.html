@@ -1,0 +1,2248 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gener — Virtual Assistant, Designer & Developer. Administrative support, data management, workflow automation, reporting, and digital solutions.">
+  <meta name="theme-color" content="#080d1a">
+  <title>Gener | Virtual Assistant</title>
+
+  <style>
+    /* =========================================================
+       GENER PERSONAL PORTFOLIO
+       Everything is contained in this single index.html file.
+       Edit your personal information in the HTML sections below.
+       ========================================================= */
+
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0c1220;
+      --card: rgba(18, 27, 46, 0.72);
+      --card-solid: #111a2b;
+      --border: rgba(119, 151, 207, 0.18);
+      --text: #edf4ff;
+      --muted: #9aa9c2;
+      --blue: #4f8cff;
+      --blue-light: #74a7ff;
+      --indigo: #7567ff;
+      --cyan: #42d9ff;
+      --success: #5ee6a8;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max-width: 1180px;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(79, 140, 255, 0.13), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(117, 103, 255, 0.11), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 45px 45px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+      z-index: -1;
+    }
+
+    ::selection {
+      background: rgba(79, 140, 255, 0.35);
+      color: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue-light);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      border-radius: 999px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(110deg, var(--blue-light), var(--cyan), #9b8cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      border-color: var(--border);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .logo-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--indigo));
+      box-shadow: 0 8px 24px rgba(79, 140, 255, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #b8c4d8;
+      font-size: 0.9rem;
+      padding: 9px 12px;
+      border-radius: 10px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      background: rgba(79, 140, 255, 0.09);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: rgba(255,255,255,0.03);
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 20px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--indigo));
+      box-shadow: 0 12px 30px rgba(79, 140, 255, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 17px 38px rgba(79, 140, 255, 0.32);
+    }
+
+    .btn-outline {
+      color: #d8e4f7;
+      border-color: var(--border);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-3px);
+      border-color: rgba(116,167,255,0.45);
+      background: rgba(79,140,255,0.08);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 145px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -180px;
+      top: 10%;
+      border-radius: 50%;
+      background: rgba(79, 140, 255, 0.08);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(94, 230, 168, 0.18);
+      background: rgba(94, 230, 168, 0.06);
+      border-radius: 999px;
+      color: #a9f1cc;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(94,230,168,0.09);
+    }
+
+    .hero h1 {
+      font-size: clamp(3.1rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      margin-bottom: 25px;
+    }
+
+    .hero-title {
+      color: #c2d0e6;
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 1.04rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 38px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      color: #8797b0;
+      font-size: 0.88rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-orbit {
+      width: min(390px, 80vw);
+      aspect-ratio: 1;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .profile-orbit::before,
+    .profile-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 10%;
+      border: 1px solid rgba(79,140,255,0.18);
+      border-radius: 50%;
+      animation: rotate 18s linear infinite;
+    }
+
+    .profile-orbit::after {
+      inset: 1%;
+      border-style: dashed;
+      border-color: rgba(117,103,255,0.14);
+      animation-direction: reverse;
+      animation-duration: 28s;
+    }
+
+    .profile-card {
+      width: 72%;
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(79,140,255,0.13), rgba(117,103,255,0.04)),
+        rgba(15, 24, 41, 0.9);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transform: rotate(-4deg);
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(66,217,255,0.13);
+      border-radius: 50%;
+      filter: blur(40px);
+      top: -50px;
+      right: -30px;
+    }
+
+    .initials {
+      font-size: clamp(5rem, 12vw, 8.5rem);
+      font-weight: 900;
+      letter-spacing: -0.1em;
+      background: linear-gradient(135deg, #fff, var(--blue-light), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+    }
+
+    .floating-card {
+      position: absolute;
+      padding: 13px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(13, 21, 36, 0.85);
+      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow);
+      font-size: 0.8rem;
+      color: #c8d5e9;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .floating-card strong {
+      display: block;
+      color: #fff;
+      font-size: 0.92rem;
+    }
+
+    .floating-one {
+      left: -2%;
+      top: 18%;
+    }
+
+    .floating-two {
+      right: -3%;
+      bottom: 18%;
+      animation-delay: -2s;
+    }
+
+    /* =========================================================
+       GENERAL CARDS
+       ========================================================= */
+
+    .card {
+      background: linear-gradient(145deg, rgba(20,30,51,0.78), rgba(10,17,30,0.78));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.14);
+    }
+
+    .card-hover {
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-6px);
+      border-color: rgba(79,140,255,0.35);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    }
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 25px;
+    }
+
+    .about-highlight {
+      padding: 30px;
+      min-height: 100%;
+    }
+
+    .about-icon {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(79,140,255,0.18), rgba(117,103,255,0.16));
+      color: var(--blue-light);
+      font-size: 1.45rem;
+      margin-bottom: 25px;
+    }
+
+    .about-highlight h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .about-highlight p,
+    .about-main p {
+      color: var(--muted);
+    }
+
+    .about-main {
+      padding: 35px;
+    }
+
+    .about-main p + p {
+      margin-top: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      color: #fff;
+    }
+
+    .stat span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       SKILLS
+       ========================================================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 25px;
+    }
+
+    .skill-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .skill-number {
+      color: var(--blue-light);
+      font-family: Consolas, monospace;
+      font-size: 0.76rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid rgba(79,140,255,0.15);
+      border-radius: 7px;
+      background: rgba(79,140,255,0.055);
+      color: #a9c8ff;
+      font-size: 0.73rem;
+    }
+
+    /* =========================================================
+       EXPERIENCE
+       ========================================================= */
+
+    .timeline {
+      position: relative;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 17px;
+      top: 5px;
+      bottom: 5px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--blue), rgba(79,140,255,0.05));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 58px;
+      margin-bottom: 35px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 9px;
+      top: 25px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--blue);
+      box-shadow: 0 0 0 5px rgba(79,140,255,0.08);
+      z-index: 2;
+    }
+
+    .experience-card {
+      padding: 28px;
+    }
+
+    .experience-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 18px;
+    }
+
+    .experience-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .company {
+      color: var(--blue-light);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .date {
+      flex-shrink: 0;
+      color: #a5b5cd;
+      font-size: 0.8rem;
+      padding: 7px 10px;
+      height: fit-content;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .experience-list {
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .experience-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    /* =========================================================
+       PROJECTS
+       ========================================================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card.featured {
+      min-height: 390px;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -80px;
+      top: -80px;
+      border-radius: 50%;
+      background: rgba(79,140,255,0.09);
+      filter: blur(10px);
+    }
+
+    .project-label {
+      display: inline-block;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      margin-bottom: 20px;
+    }
+
+    .project-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 13px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      max-width: 650px;
+    }
+
+    .project-features {
+      list-style: none;
+      margin: 22px 0;
+      display: grid;
+      gap: 9px;
+    }
+
+    .project-features li {
+      color: #c3d0e3;
+      font-size: 0.85rem;
+      display: flex;
+      gap: 10px;
+    }
+
+    .project-features li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .recognition {
+      margin-top: 25px;
+      padding: 18px;
+      border-left: 3px solid var(--blue);
+      background: rgba(79,140,255,0.055);
+      color: #b8c7dc;
+      font-size: 0.83rem;
+      font-style: italic;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .project-side {
+      display: grid;
+      gap: 20px;
+    }
+
+    .mini-project {
+      padding: 26px;
+    }
+
+    .mini-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--blue-light);
+      background: rgba(79,140,255,0.09);
+      margin-bottom: 16px;
+    }
+
+    .mini-project h3 {
+      font-size: 1.05rem;
+      margin-bottom: 7px;
+    }
+
+    .mini-project p {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    /* =========================================================
+       EDUCATION + CERTIFICATIONS
+       ========================================================= */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .education-card,
+    .cert-card {
+      padding: 30px;
+    }
+
+    .education-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .institution {
+      color: var(--blue-light);
+      margin-bottom: 20px;
+    }
+
+    .education-year {
+      display: inline-block;
+      padding: 6px 10px;
+      background: rgba(79,140,255,0.07);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #b9c9e1;
+      font-size: 0.78rem;
+    }
+
+    .cert-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .cert-item {
+      padding: 15px;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .cert-check {
+      color: var(--success);
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .cert-item strong {
+      display: block;
+      font-size: 0.87rem;
+      color: #e1eafa;
+    }
+
+    .cert-item span {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    /* =========================================================
+       SERVICES
+       ========================================================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 27px;
+    }
+
+    .service-icon {
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(79,140,255,0.14), rgba(117,103,255,0.12));
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+    }
+
+    .service-card li {
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding-left: 17px;
+      position: relative;
+    }
+
+    .service-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--blue-light);
+    }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 20px;
+    }
+
+    .contact-intro {
+      padding: 35px;
+    }
+
+    .contact-intro h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-intro p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 13px;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .contact-detail-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: rgba(79,140,255,0.09);
+      color: var(--blue-light);
+    }
+
+    .contact-detail small {
+      display: block;
+      color: #75869f;
+      font-size: 0.7rem;
+    }
+
+    .contact-detail span {
+      font-size: 0.84rem;
+      color: #d3deed;
+      word-break: break-word;
+    }
+
+    .contact-form {
+      padding: 35px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+      color: #c5d1e2;
+      font-size: 0.78rem;
+      margin-bottom: 7px;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 13px 14px;
+      color: #fff;
+      background: rgba(3,7,15,0.55);
+      border: 1px solid rgba(119,151,207,0.17);
+      border-radius: 10px;
+      outline: none;
+      font: inherit;
+      font-size: 0.88rem;
+      transition: var(--transition);
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(79,140,255,0.6);
+      box-shadow: 0 0 0 3px rgba(79,140,255,0.08);
+    }
+
+    .field textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: #6f819c;
+      font-size: 0.72rem;
+      margin-top: 10px;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      background: rgba(0,0,0,0.12);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-copy {
+      color: #70819a;
+      font-size: 0.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: #8b9bb4;
+      font-size: 0.8rem;
+      padding: 7px 9px;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* =========================================================
+       BACK TO TOP
+       ========================================================= */
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(12,19,32,0.88);
+      color: #fff;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: var(--transition);
+      z-index: 900;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       ANIMATIONS
+       ========================================================= */
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 950px) {
+      .hero-grid,
+      .about-grid,
+      .projects-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 45px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .profile-orbit {
+        width: min(330px, 78vw);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 75px;
+        padding: 10px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(10,16,28,0.97);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px 14px;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 16vw, 5rem);
+      }
+
+      .stats,
+      .skills-grid,
+      .two-column,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-top {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .date {
+        width: fit-content;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .floating-one {
+        left: -4%;
+      }
+
+      .floating-two {
+        right: -4%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-meta {
+        display: grid;
+        gap: 9px;
+      }
+
+      .profile-card {
+        border-radius: 25px;
+      }
+
+      .floating-card {
+        font-size: 0.7rem;
+        padding: 10px;
+      }
+
+      .experience-card,
+      .project-card,
+      .about-main,
+      .about-highlight,
+      .contact-intro,
+      .contact-form {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       NAVIGATION
+       Edit navigation labels/links here if needed.
+       ======================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="Gener home">
+        <span class="logo-mark">G</span>
+        <span>Gener<span class="gradient-text">.</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =======================================================
+       HOME / HERO
+       Edit your name, professional title and introduction here.
+       ======================================================= -->
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <span class="status-dot"></span>
+            Available for opportunities
+          </div>
+
+          <h1>
+            Hi, I'm <span class="gradient-text">Gener.</span>
+          </h1>
+
+          <div class="hero-title">
+            Virtual Assistant <span style="color:#5e6f88;">•</span>
+            Designer & Developer
+          </div>
+
+          <p class="hero-description">
+            Detail-oriented professional specializing in administrative coordination,
+            data verification, workflow optimization, reporting, and practical digital
+            solutions. I transform complex operational tasks into accurate, organized,
+            and efficient workflows.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              Let's Work Together →
+            </a>
+            <a href="#experience" class="btn btn-outline">
+              View Experience
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span>📍 Pasig City, Philippines</span>
+            <span>⚡ 9+ Years Operations Experience</span>
+            <span>💻 Power Platform & Data</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="profile-orbit">
+
+            <div class="profile-card">
+              <!-- Replace these initials with a profile photo if desired. -->
+              <div class="initials">G</div>
+            </div>
+
+            <div class="floating-card floating-one">
+              <strong>Power Platform</strong>
+              Power BI • Apps • Automate
+            </div>
+
+            <div class="floating-card floating-two">
+              <strong>Data + Accuracy</strong>
+              Reporting & Verification
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT
+         Edit the About Me content here.
+         ===================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">About Me</div>
+          <h2 class="section-title">
+            Reliable operations with a <span class="gradient-text">creative edge.</span>
+          </h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="card about-highlight card-hover reveal">
+            <div class="about-icon">✦</div>
+            <h3>Accuracy meets innovation.</h3>
+            <p>
+              I combine administrative experience, technical proficiency,
+              analytical thinking, and creative problem-solving to build
+              efficient solutions for data-driven environments.
+            </p>
+
+            <div class="stats">
+              <div class="stat">
+                <strong>9+</strong>
+                <span>Years Experience</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Accuracy Focus</span>
+              </div>
+              <div class="stat">
+                <strong>2026</strong>
+                <span>Latest Recognition</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card about-main card-hover reveal">
+            <p>
+              I am Gener, a detail-oriented Designer & Developer with extensive
+              experience in administrative coordination, data verification, and
+              workflow optimization. With over nine years supporting operations
+              at the British Embassy Manila, I combine technical proficiency
+              with creative problem-solving to deliver efficient, visually
+              appealing solutions.
+            </p>
+
+            <p>
+              My professional focus is on accuracy, compliance, and innovation
+              in data-driven environments. I have experience working with
+              Microsoft Power Platform, advanced Excel, databases, reporting,
+              document verification, and workflow automation.
+            </p>
+
+            <p>
+              Beyond work, I enjoy exploring new technologies, optimizing
+              workflows, and continuously learning. I also find creativity in
+              video editing, discipline in motorcycle riding, and balance in
+              caring for my cat.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SKILLS
+         Edit/add skills here.
+         ===================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Core Competencies</div>
+          <h2 class="section-title">
+            Skills that keep <span class="gradient-text">operations moving.</span>
+          </h2>
+          <p class="section-description">
+            A combination of administrative discipline, technical capability,
+            analytical thinking, and strong attention to detail.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">01</span> Data Entry & Reporting</h3>
+            <p>
+              Preparing administrative reports, updating databases with high
+              accuracy, and managing expense tracking or petty cash.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Data Entry</span>
+              <span class="tag">Reporting</span>
+              <span class="tag">Database Updates</span>
+            </div>
+          </article>
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">02</span> Attention to Detail</h3>
+            <p>
+              Identifying discrepancies in reports, schedules, and documentation
+              before they cause operational issues.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Quality Control</span>
+              <span class="tag">Accuracy</span>
+              <span class="tag">Verification</span>
+            </div>
+          </article>
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">03</span> Advanced Computer Literacy</h3>
+            <p>
+              Proficient with Microsoft Power Platform, Advanced Excel,
+              complex database management, and workflow automation.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Power Apps</span>
+              <span class="tag">Power Query</span>
+              <span class="tag">Power Automate</span>
+              <span class="tag">Excel</span>
+            </div>
+          </article>
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">04</span> Compliance Auditing</h3>
+            <p>
+              Systematic credential checks, background documentation reviews,
+              inventory tracking, and asset audits.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Document Review</span>
+              <span class="tag">Auditing</span>
+              <span class="tag">Compliance</span>
+            </div>
+          </article>
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">05</span> Communication</h3>
+            <p>
+              Drafting professional correspondence, answering calls, routing
+              memos, and serving as a primary contact for staff.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Email</span>
+              <span class="tag">Correspondence</span>
+              <span class="tag">Client Support</span>
+            </div>
+          </article>
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">06</span> Time Management</h3>
+            <p>
+              Managing multiple tasks simultaneously while maintaining
+              priorities and deadlines.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Prioritization</span>
+              <span class="tag">Scheduling</span>
+              <span class="tag">Deadlines</span>
+            </div>
+          </article>
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">07</span> Problem Solving</h3>
+            <p>
+              Troubleshooting office disruptions including equipment failures,
+              changing requirements, and last-minute meeting changes.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Troubleshooting</span>
+              <span class="tag">Critical Thinking</span>
+            </div>
+          </article>
+
+          <article class="card skill-card card-hover reveal">
+            <h3><span class="skill-number">08</span> Adaptability</h3>
+            <p>
+              Adjusting quickly to shifting priorities, policy changes,
+              and urgent regional requests.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Flexibility</span>
+              <span class="tag">Learning</span>
+              <span class="tag">Agility</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EXPERIENCE
+         Edit job titles, employers, dates and achievements here.
+         ===================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Career Journey</div>
+          <h2 class="section-title">
+            Professional <span class="gradient-text">experience.</span>
+          </h2>
+          <p class="section-description">
+            A career built around operational support, verification,
+            compliance, technology, and continuous improvement.
+          </p>
+        </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="card experience-card card-hover">
+              <div class="experience-top">
+                <div>
+                  <h3>Visa Writer & HM Passport Office Verification Officer (AO)</h3>
+                  <div class="company">
+                    Operational Support Team Officer • UK Visas & Immigration (UKVI) /
+                    British Embassy Manila
+                  </div>
+                </div>
+                <div class="date">May 2022 – May 2026</div>
+              </div>
+
+              <ul class="experience-list">
+                <li>Drafted refusal notices and approval decision notes in strict accordance with UKVI guidelines.</li>
+                <li>Managed operational workflows supporting HMPO and UKVI visa processing pipelines.</li>
+                <li>Designed and deployed automated dashboards using Power Apps, Power Query, and Power BI.</li>
+                <li>Processed high-volume visa and passport data transactions with 100% accuracy.</li>
+                <li>Conducted audits of contracts, inventories, and archival records to ensure compliance.</li>
+                <li>Served as liaison for complex internal and external inquiries, streamlining communication.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="card experience-card card-hover">
+              <div class="experience-top">
+                <div>
+                  <h3>Entry Clearance Assistant & Visa Processor (LE4-A1)</h3>
+                  <div class="company">British Embassy Manila</div>
+                </div>
+                <div class="date">Nov 2015 – Mar 2021</div>
+              </div>
+
+              <ul class="experience-list">
+                <li>Supported operational teams in daily communications with central administration.</li>
+                <li>Performed document verification, risk checks, and authenticity assessments.</li>
+                <li>Produced monthly administrative reports and statistical dashboards.</li>
+                <li>Coordinated logistics, records management, and training program support.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="card experience-card card-hover">
+              <div class="experience-top">
+                <div>
+                  <h3>Temporary Office Staff</h3>
+                  <div class="company">
+                    British Embassy Manila • via People 4 People Inc.
+                  </div>
+                </div>
+                <div class="date">2013 – 2015</div>
+              </div>
+
+              <ul class="experience-list">
+                <li>Processed purchase requests and coordinated supplier deliveries.</li>
+                <li>Maintained organized filing systems and daily task-monitoring schedules.</li>
+                <li>Drafted correspondence, formatted reports, and arranged meeting facilities.</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PROJECTS
+         Edit project information and recognition quote here.
+         ===================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Selected Work</div>
+          <h2 class="section-title">
+            Projects that turn problems into <span class="gradient-text">systems.</span>
+          </h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="card project-card featured card-hover reveal">
+            <div class="project-label">Featured Project • 2026</div>
+            <h3>DVR PowerApp</h3>
+
+            <p>
+              Custom-built PowerApp integrated with SharePoint and Excel for
+              secure data capture, analysis, and operational intelligence.
+              The system was developed to support the Enrichment Team in
+              capturing forgery-related information and building a structured
+              database.
+            </p>
+
+            <ul class="project-features">
+              <li>Custom Power Apps interface and workflow</li>
+              <li>SharePoint and Excel integration</li>
+              <li>Structured data capture and analysis</li>
+              <li>Forgery trend identification</li>
+              <li>Agent profile and evidence-based insights</li>
+              <li>Streamlined reporting and decision-making</li>
+            </ul>
+
+            <div class="recognition">
+              Due to data sensitivity, screenshots of the DVR PowerApp tool
+              cannot be shared. Instead, the project is represented through
+              its official innovation recognition.
+            </div>
+          </article>
+
+          <div class="project-side">
+
+            <article class="card mini-project card-hover reveal">
+              <div class="mini-icon">▦</div>
+              <h3>Automated Excel Dashboards</h3>
+              <p>
+                Built automated dashboards using Power Query for real-time
+                updates and dynamic data visualization.
+              </p>
+            </article>
+
+            <article class="card mini-project card-hover reveal">
+              <div class="mini-icon">⌁</div>
+              <h3>Data Intelligence</h3>
+              <p>
+                Implemented formulas and sorting logic to identify forgery
+                trends and agent profiles.
+              </p>
+            </article>
+
+            <article class="card mini-project card-hover reveal">
+              <div class="mini-icon">✦</div>
+              <h3>Innovation Recognition</h3>
+              <p>
+                Nominated by Michael Fong in 2026 for exceptional initiative
+                and technical innovation.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="card recognition reveal" style="margin-top:20px;">
+          “Gener has demonstrated a strong commitment to personal learning
+          and development by proactively self-learning Microsoft PowerApps.
+          Demonstrating initiative and innovation, he applied his newly
+          acquired skills to solve a real operational challenge by developing
+          the DVR PowerApp. This custom-built application empowers the
+          Enrichment Team to efficiently capture forgery-related information
+          and build a structured database.”
+          <br><br>
+          <strong style="color:#dce7f8; font-style:normal;">
+            — Innovation Recognition, 2026
+          </strong>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EDUCATION + CERTIFICATIONS
+         Edit education and certification information here.
+         ===================================================== -->
+    <section class="section" id="education">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Education & Credentials</div>
+          <h2 class="section-title">
+            Continuous <span class="gradient-text">learning.</span>
+          </h2>
+        </div>
+
+        <div class="two-column">
+
+          <article class="card education-card card-hover reveal">
+            <div class="about-icon">🎓</div>
+            <h3>Diploma in Computer Programming (NC IV)</h3>
+            <div class="institution">
+              Informatics • City College of Manila
+            </div>
+            <p style="color:var(--muted); font-size:0.9rem; margin-bottom:20px;">
+              Diploma Certificate
+            </p>
+            <span class="education-year">2012</span>
+          </article>
+
+          <article class="card cert-card card-hover reveal" id="certifications">
+            <div class="about-icon">✓</div>
+            <h3 style="margin-bottom:20px;">Certifications & Training</h3>
+
+            <div class="cert-list">
+
+              <div class="cert-item">
+                <span class="cert-check">✓</span>
+                <div>
+                  <strong>Power Automate & Power Apps Certification</strong>
+                  <span>British Embassy Manila • 2026</span>
+                </div>
+              </div>
+
+              <div class="cert-item">
+                <span class="cert-check">✓</span>
+                <div>
+                  <strong>Power BI Certification</strong>
+                  <span>British Embassy Manila • 2025</span>
+                </div>
+              </div>
+
+              <div class="cert-item">
+                <span class="cert-check">✓</span>
+                <div>
+                  <strong>Professional Development Seminars</strong>
+                  <span>Guthrie Jensen / British Embassy Manila • 2019–2022</span>
+                </div>
+              </div>
+
+              <div class="cert-item">
+                <span class="cert-check">✓</span>
+                <div>
+                  <strong>Microsoft Excel</strong>
+                  <span>Guthrie Jensen / British Embassy Manila • 2020</span>
+                </div>
+              </div>
+
+              <div class="cert-item">
+                <span class="cert-check">✓</span>
+                <div>
+                  <strong>Basic and Advanced Computer Literacy</strong>
+                  <span>Iscom</span>
+                </div>
+              </div>
+
+              <div class="cert-item">
+                <span class="cert-check">✓</span>
+                <div>
+                  <strong>Emotional Quotient & Customer Service 101 Training</strong>
+                  <span>Iscom</span>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SERVICES
+         Edit/add services here.
+         ===================================================== -->
+    <section class="section" id="services">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">What I Can Do</div>
+          <h2 class="section-title">
+            Practical support for <span class="gradient-text">busy teams.</span>
+          </h2>
+          <p class="section-description">
+            Flexible virtual assistance combining administrative reliability
+            with technical and digital skills.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="card service-card card-hover reveal">
+            <div class="service-icon">▤</div>
+            <h3>Administrative Support</h3>
+            <ul>
+              <li>Email management</li>
+              <li>Calendar scheduling</li>
+              <li>Document preparation</li>
+              <li>Formatting and proofreading</li>
+              <li>Data entry and database management</li>
+              <li>File and cloud organization</li>
+            </ul>
+          </article>
+
+          <article class="card service-card card-hover reveal">
+            <div class="service-icon">◌</div>
+            <h3>Customer & Client Support</h3>
+            <ul>
+              <li>Email and chat inquiries</li>
+              <li>Client reports and updates</li>
+              <li>CRM record maintenance</li>
+              <li>HubSpot, Zoho, Salesforce workflows</li>
+              <li>Non-voice support</li>
+            </ul>
+          </article>
+
+          <article class="card service-card card-hover reveal">
+            <div class="service-icon">⌘</div>
+            <h3>Technical & Digital Tasks</h3>
+            <ul>
+              <li>WordPress updates</li>
+              <li>Content posting and maintenance</li>
+              <li>Zapier or Make workflows</li>
+              <li>CRM integration and data syncing</li>
+              <li>Website QA and testing</li>
+            </ul>
+          </article>
+
+          <article class="card service-card card-hover reveal">
+            <div class="service-icon">⌕</div>
+            <h3>Research & Reporting</h3>
+            <ul>
+              <li>Market research</li>
+              <li>Competitor analysis</li>
+              <li>Data verification</li>
+              <li>Accuracy checks</li>
+              <li>Excel dashboards</li>
+              <li>Power BI reports</li>
+            </ul>
+          </article>
+
+          <article class="card service-card card-hover reveal">
+            <div class="service-icon">↗</div>
+            <h3>Social Media Support</h3>
+            <ul>
+              <li>Post scheduling</li>
+              <li>Buffer or Hootsuite workflows</li>
+              <li>Engagement monitoring</li>
+              <li>Analytics reports</li>
+              <li>Coordination with design teams</li>
+            </ul>
+          </article>
+
+          <article class="card service-card card-hover reveal">
+            <div class="service-icon">⚙</div>
+            <h3>Workflow Optimization</h3>
+            <ul>
+              <li>Process improvement</li>
+              <li>Data workflow automation</li>
+              <li>Dashboard development</li>
+              <li>Power Platform solutions</li>
+              <li>Operational documentation</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT
+         Edit your email, LinkedIn and location here.
+         ===================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Get In Touch</div>
+          <h2 class="section-title">
+            Let's build something <span class="gradient-text">efficient.</span>
+          </h2>
+          <p class="section-description">
+            Looking for reliable administrative support, data expertise,
+            workflow automation, or a detail-oriented virtual assistant?
+            Let's talk.
+          </p>
+        </div>
+
+        <div class="contact-box">
+
+          <div class="card contact-intro card-hover reveal">
+            <h3>Contact Gener</h3>
+            <p>
+              I'm open to freelance projects, virtual assistant opportunities,
+              administrative roles, technical support work, and collaborations
+              where accuracy and innovation matter.
+            </p>
+
+            <div class="contact-details">
+
+              <a class="contact-detail" href="mailto:macatuno23@gmail.com">
+                <div class="contact-detail-icon">✉</div>
+                <div>
+                  <small>Email</small>
+                  <span>macatuno23@gmail.com</span>
+                </div>
+              </a>
+
+              <a class="contact-detail"
+                 href="https://www.linkedin.com/in/gener-macatuno"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <div class="contact-detail-icon">in</div>
+                <div>
+                  <small>LinkedIn</small>
+                  <span>linkedin.com/in/gener-macatuno</span>
+                </div>
+              </a>
+
+              <div class="contact-detail">
+                <div class="contact-detail-icon">⌖</div>
+                <div>
+                  <small>Location</small>
+                  <span>Pasig City, Philippines</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!--
+            IMPORTANT:
+            This contact form works without a backend by opening the
+            visitor's default email application using mailto.
+            Change the email address in the JavaScript below if needed.
+          -->
+          <form class="card contact-form card-hover reveal" id="contactForm">
+
+            <div class="form-grid">
+
+              <div class="field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Smith" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+
+              <div class="field full">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Project inquiry" required>
+              </div>
+
+              <div class="field full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+              </div>
+
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              Send Message →
+            </button>
+
+            <div class="form-note">
+              Your email app will open with the message prepared for Gener.
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+  <footer>
+    <div class="container footer-inner">
+
+      <div class="footer-copy">
+        © <span id="year"></span> Gener. All rights reserved.
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <script>
+    /* =========================================================
+       GENER PORTFOLIO JAVASCRIPT
+       Everything below works without external libraries.
+       ========================================================= */
+
+    // ---------------------------------------------------------
+    // Mobile Navigation
+    // ---------------------------------------------------------
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close mobile menu after clicking a navigation link
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // ---------------------------------------------------------
+    // Navbar background on scroll
+    // ---------------------------------------------------------
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 30) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // ---------------------------------------------------------
+    // Scroll reveal animation
+    // ---------------------------------------------------------
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    revealElements.forEach(function (element) {
+      revealObserver.observe(element);
+    });
+
+    // ---------------------------------------------------------
+    // Back-to-top button
+    // ---------------------------------------------------------
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 500) {
+        backTop.classList.add("visible");
+      } else {
+        backTop.classList.remove("visible");
+      }
+    });
+
+    backTop.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    // ---------------------------------------------------------
+    // Dynamic copyright year
+    // ---------------------------------------------------------
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---------------------------------------------------------
+    // Contact form
+    //
+    // EDIT YOUR EMAIL ADDRESS HERE if you change your email.
+    // ---------------------------------------------------------
+    const portfolioEmail = "macatuno23@gmail.com";
+
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert("Please complete all fields before sending your message.");
+        return;
+      }
+
+      const emailSubject =
+        encodeURIComponent(subject);
+
+      const emailBody =
+        encodeURIComponent(
+          "Hello Gener,\n\n" +
+          "Name: " + name + "\n" +
+          "Email: " + email + "\n\n" +
+          "Message:\n" +
+          message +
+          "\n\n---\nSent from Gener's portfolio website."
+        );
+
+      window.location.href =
+        "mailto:" +
+        portfolioEmail +
+        "?subject=" +
+        emailSubject +
+        "&body=" +
+        emailBody;
+    });
+
+    // ---------------------------------------------------------
+    // Small accessibility improvement:
+    // Allow Escape to close mobile navigation.
+    // ---------------------------------------------------------
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
