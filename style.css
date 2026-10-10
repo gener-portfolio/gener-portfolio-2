@@ -4,6 +4,7 @@
   border-radius: 50%;    /* keeps it circular */
   object-fit: cover;     /* crops neatly */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* subtle glow */
+}
 
 .profile-photo {
   position: relative;
