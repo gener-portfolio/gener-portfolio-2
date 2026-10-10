@@ -1,12 +1,13 @@
-/* Profile orbit container */
+/* Orbit container */
 .profile-orbit {
   position: relative;
   width: 250px;
   height: 250px;
   margin: auto;
+  animation: orbit-rotate 20s linear infinite;
 }
 
-/* Profile card (main square) */
+/* Main card */
 .profile-card {
   position: absolute;
   top: 50%;
@@ -21,9 +22,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 5;
 }
 
-/* Profile photo inside the card */
+/* Profile photo */
 .profile-photo {
   width: 100%;
   height: 100%;
@@ -47,7 +49,6 @@
   backdrop-filter: blur(6px);
 }
 
-/* Floating card positions */
 .floating-one {
   top: 20%;
   left: -60%;
@@ -58,12 +59,8 @@
   right: -60%;
 }
 
-/* Optional orbit animation */
+/* Orbit animation */
 @keyframes orbit-rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.profile-orbit {
-  animation: orbit-rotate 20s linear infinite;
 }
