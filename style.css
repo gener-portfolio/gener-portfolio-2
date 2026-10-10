@@ -4,8 +4,13 @@
   border-radius: 50%;    /* keeps it circular */
   object-fit: cover;     /* crops neatly */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* subtle glow */
-}
+
 .profile-photo {
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  filter: drop-shadow(0 0 10px rgba(0, 150, 255, 0.3));
+  position: relative;
+  z-index: 10;
+}
+.profile-card {
+  width: 120px;
+  height: 120px;
+  overflow: visible;
 }
