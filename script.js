@@ -66,3 +66,36 @@
   // Set the initial background position
   updateBackground();
 })();
+
+/* Charcoal background that shifts as you scroll */
+(() => {
+  const root = document.documentElement;
+  let pending = false;
+
+  function updateBackground() {
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress = maxScroll > 0
+      ? Math.max(0, Math.min(window.scrollY / maxScroll, 1))
+      : 0;
+
+    root.style.setProperty("--bg-x", `${20 + progress * 60}%`);
+    root.style.setProperty("--bg-y", `${30 + progress * 25}%`);
+    root.style.setProperty("--bg-x2", `${80 - progress * 60}%`);
+    root.style.setProperty("--bg-y2", `${70 - progress * 25}%`);
+
+    pending = false;
+  }
+
+  function onScroll() {
+    if (!pending) {
+      pending = true;
+      requestAnimationFrame(updateBackground);
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateBackground);
+  updateBackground();
+})();
