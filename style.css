@@ -1283,4 +1283,37 @@
         padding: 22px;
       }
     }
+/* TEST: Make the gradient clearly visible */
+html {
+  min-height: 100%;
+  background: #070b14;
+}
 
+body {
+  min-height: 100vh;
+  background-color: #070b14 !important;
+  background-image:
+    radial-gradient(
+      ellipse at 15% 25%,
+      rgba(0, 110, 255, 0.75),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 65%,
+      rgba(145, 45, 255, 0.65),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      #070b14,
+      #102b59,
+      #080d1a
+    ) !important;
+  background-size: 220% 220%, 220% 220%, 100% 100% !important;
+  background-position:
+    var(--bg-x, 0%) var(--bg-y, 0%),
+    var(--bg-x2, 100%) var(--bg-y2, 100%),
+    center !important;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
