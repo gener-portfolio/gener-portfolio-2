@@ -2244,6 +2244,45 @@
     });
   </script>
 
+const portrait = document.querySelector(".hero-portrait");
+
+if (portrait) {
+  let ticking = false;
+
+  function updatePortrait() {
+    const scrollY = window.scrollY;
+    const progress = Math.max(0, Math.min(1, scrollY / 700));
+
+    // Move sideways, tilt in 3D, and zoom slightly
+    const moveX = progress * 100;
+    const rotateY = progress * -18;
+    const rotateX = progress * 4;
+    const scale = 1 + progress * 0.12;
+
+    portrait.style.transform = `
+      translate3d(${moveX}px, ${progress * 25}px, 0)
+      rotateY(${rotateY}deg)
+      rotateX(${rotateX}deg)
+      scale(${scale})
+    `;
+
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updatePortrait);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  updatePortrait();
+}
+
 </body>
 </html>
 ```
