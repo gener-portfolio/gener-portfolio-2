@@ -190,3 +190,56 @@
 
       .form-grid {
         grid-template-columns: 1fr;
+
+/* =========================================================
+   PROFESSIONAL PHOTO BACKGROUND
+   ========================================================= */
+
+html {
+  min-height: 100%;
+  background-color: #171b22;
+}
+
+body {
+  background-color: #171b22 !important;
+
+  background-image:
+    linear-gradient(
+      rgba(8, 12, 20, 0.78),
+      rgba(8, 12, 20, 0.88)
+    ),
+    url("./your-photo.jpg");
+
+  background-size: cover, 115% auto;
+
+  background-position:
+    center,
+    var(--bg-image-x, 50%) var(--bg-image-y, 50%);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #171b22;
+
+  overflow-x: hidden;
+}
+
+/* Keep the photo background behind the website content */
+body::before {
+  content: none;
+}
+
+/* Keep the navigation and back-to-top button visible */
+.navbar {
+  z-index: 1000;
+}
+
+.back-top {
+  z-index: 1001;
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
