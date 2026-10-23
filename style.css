@@ -1,4 +1,48 @@
-/* Orbit container */
+
+/* ==========================================
+   DARK BLUE SCROLLING BACKGROUND
+   ========================================== */
+
+body {
+  background-color: #070b14;
+
+  background-image:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(40, 100, 220, 0.24),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 60%,
+      rgba(90, 65, 210, 0.18),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #070b14,
+      #101d38,
+      #080d1a
+    );
+
+  background-size:
+    180% 180%,
+    180% 180%,
+    100% 100%;
+
+  background-position:
+    var(--bg-x, 0%) var(--bg-y, 0%),
+    var(--bg-x2, 100%) var(--bg-y2, 100%),
+    center;
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: background-position 0.12s linear;
+}
+
+/* ==========================================
+   PROFILE ORBIT CONTAINER
+   ========================================== */
+
 .profile-orbit {
   position: relative;
   width: 250px;
@@ -7,7 +51,10 @@
   animation: orbit-rotate 20s linear infinite;
 }
 
-/* Main profile card */
+/* ==========================================
+   MAIN PROFILE CARD
+   ========================================== */
+
 .profile-card {
   position: absolute;
   top: 50%;
@@ -15,9 +62,16 @@
   transform: translate(-50%, -50%);
   width: 120px;
   height: 120px;
-  background: linear-gradient(145deg, #0b1a2f, #0e223f);
+
+  background: linear-gradient(
+    145deg,
+    #0b1a2f,
+    #0e223f
+  );
+
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0, 150, 255, 0.2);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,28 +79,45 @@
   z-index: 5;
 }
 
-/* Profile photo replacing initials */
+/* ==========================================
+   PROFILE PHOTO
+   ========================================== */
+
 .profile-photo {
+  display: block;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
+  border-radius: 50%;
+
   border: 2px solid rgba(255, 255, 255, 0.15);
-  filter: drop-shadow(0 0 10px rgba(0, 150, 255, 0.3));
+
+  filter: drop-shadow(
+    0 0 10px rgba(0, 150, 255, 0.3)
+  );
+
   position: relative;
   z-index: 10;
 }
 
-/* Floating cards */
+/* ==========================================
+   FLOATING INFORMATION CARDS
+   ========================================== */
+
 .floating-card {
   position: absolute;
   background: rgba(15, 25, 45, 0.9);
   color: #fff;
+
   padding: 10px 15px;
   border-radius: 10px;
   font-size: 0.85rem;
+
   box-shadow: 0 0 15px rgba(0, 150, 255, 0.2);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  z-index: 6;
 }
 
 .floating-one {
@@ -59,48 +130,72 @@
   right: -60%;
 }
 
-/* Orbit animation */
+/* ==========================================
+   ORBIT ANIMATION
+   ========================================== */
+
 @keyframes orbit-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* 3D portrait container */
+/* ==========================================
+   3D PORTRAIT CONTAINER
+   ========================================== */
+
 .hero-portrait-wrap {
   perspective: 1200px;
   overflow: visible;
   position: relative;
+
+  animation: portraitReveal 1s ease-out both;
 }
 
-/* Portrait styling */
+/* ==========================================
+   3D PORTRAIT IMAGE
+   ========================================== */
+
 .hero-portrait {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
+
   transform-origin: center center;
   will-change: transform;
-  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.3));
+
+  filter: drop-shadow(
+    0 25px 45px rgba(0, 0, 0, 0.3)
+  );
+
   transition: filter 0.3s ease;
 }
 
-/* Smooth appearance */
-.hero-portrait-wrap {
-  animation: portraitReveal 1s ease-out both;
-}
+/* ==========================================
+   PORTRAIT ENTRANCE ANIMATION
+   ========================================== */
 
 @keyframes portraitReveal {
   from {
     opacity: 0;
     transform: translateY(35px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Mobile optimization */
+/* ==========================================
+   MOBILE RESPONSIVENESS
+   ========================================== */
+
 @media (max-width: 768px) {
   .hero-portrait {
     max-width: 340px;
@@ -108,13 +203,22 @@
   }
 }
 
-/* Accessibility */
+/* ==========================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================== */
+
 @media (prefers-reduced-motion: reduce) {
+  .profile-orbit,
   .hero-portrait-wrap {
     animation: none;
   }
 
   .hero-portrait {
     transform: none !important;
+    will-change: auto;
+  }
+
+  body {
+    transition: none;
   }
 }
