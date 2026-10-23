@@ -3,30 +3,47 @@
    DARK BLUE SCROLLING BACKGROUND
    ========================================== */
 
-body {
-  background-color: #070b14;
+html {
+  min-height: 100%;
+  background: #070b14;
+}
 
-  background-image:
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background: transparent !important;
+}
+
+/* Animated background layer behind the content */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -15%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
     radial-gradient(
-      ellipse at 15% 20%,
-      rgba(40, 100, 220, 0.24),
+      ellipse at 20% 30%,
+      rgba(35, 100, 240, 0.30),
       transparent 45%
     ),
     radial-gradient(
-      ellipse at 85% 60%,
-      rgba(90, 65, 210, 0.18),
+      ellipse at 80% 65%,
+      rgba(105, 65, 230, 0.22),
       transparent 45%
     ),
     linear-gradient(
       135deg,
       #070b14,
-      #101d38,
+      #102142,
       #080d1a
     );
 
   background-size:
-    180% 180%,
-    180% 180%,
+    140% 140%,
+    140% 140%,
     100% 100%;
 
   background-position:
@@ -34,9 +51,15 @@ body {
     var(--bg-x2, 100%) var(--bg-y2, 100%),
     center;
 
-  background-attachment: fixed;
   background-repeat: no-repeat;
-  transition: background-position 0.12s linear;
+  will-change: background-position;
+}
+
+/* Keep the background visible through page sections */
+section,
+main,
+footer {
+  background-color: transparent;
 }
 
 /* ==========================================
@@ -60,6 +83,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   width: 120px;
   height: 120px;
 
@@ -114,6 +138,7 @@ body {
   font-size: 0.85rem;
 
   box-shadow: 0 0 15px rgba(0, 150, 255, 0.2);
+
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
@@ -218,66 +243,6 @@ body {
     will-change: auto;
   }
 
-  body {
-    transition: none;
-  }
-}
-
-/* FIXED ANIMATED BACKGROUND LAYER */
-html {
-  min-height: 100%;
-  background: #070b14;
-}
-
-body {
-  position: relative;
-  isolation: isolate;
-  background: transparent !important;
-}
-
-/* Moving background behind the entire page */
-body::after {
-  content: "";
-  position: fixed;
-  inset: -15%;
-  z-index: -1;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at 20% 30%,
-      rgba(35, 100, 240, 0.30),
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at 80% 65%,
-      rgba(105, 65, 230, 0.22),
-      transparent 45%
-    ),
-    linear-gradient(
-      135deg,
-      #070b14,
-      #102142,
-      #080d1a
-    );
-
-  background-size: 140% 140%, 140% 140%, 100% 100%;
-  background-position:
-    var(--bg-x, 0%) var(--bg-y, 0%),
-    var(--bg-x2, 100%) var(--bg-y2, 100%),
-    center;
-
-  will-change: background-position;
-}
-
-/* Allow the animated background to show through */
-section,
-main,
-footer {
-  background-color: transparent;
-}
-
-@media (prefers-reduced-motion: reduce) {
   body::after {
     will-change: auto;
   }
