@@ -1,7 +1,8 @@
 
-/* ==========================================
-   SCROLL-RESPONSIVE DARK BLUE BACKGROUND
-   ========================================== */
+/* =========================================================
+   GENER PORTFOLIO
+   PORTRAIT BACKGROUND THAT MOVES WHILE SCROLLING
+   ========================================================= */
 
 (() => {
   const root = document.documentElement;
@@ -18,26 +19,22 @@
         )
       : 0;
 
-    // Move the blue gradient
+    /*
+      These variables are used by the background-image
+      rule in style.css.
+
+      The photo moves subtly from left to right and
+      slightly vertically as the visitor scrolls.
+    */
+
     root.style.setProperty(
-      "--bg-x",
-      `${progress * 45}%`
+      "--bg-image-x",
+      `${35 + progress * 30}%`
     );
 
     root.style.setProperty(
-      "--bg-y",
-      `${progress * 35}%`
-    );
-
-    // Move the purple gradient in the opposite direction
-    root.style.setProperty(
-      "--bg-x2",
-      `${100 - progress * 45}%`
-    );
-
-    root.style.setProperty(
-      "--bg-y2",
-      `${100 - progress * 35}%`
+      "--bg-image-y",
+      `${35 + progress * 20}%`
     );
 
     scheduled = false;
@@ -50,52 +47,19 @@
     window.requestAnimationFrame(updateBackground);
   }
 
-  // Update while scrolling
+  // Update the background as the visitor scrolls.
   window.addEventListener(
     "scroll",
     requestBackgroundUpdate,
     { passive: true }
   );
 
-  // Recalculate after resizing
+  // Recalculate when the browser window changes size.
   window.addEventListener(
     "resize",
     requestBackgroundUpdate
   );
 
-  // Set the initial background position
-  updateBackground();
-})();
-
-/* Charcoal background that shifts as you scroll */
-(() => {
-  const root = document.documentElement;
-  let pending = false;
-
-  function updateBackground() {
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-
-    const progress = maxScroll > 0
-      ? Math.max(0, Math.min(window.scrollY / maxScroll, 1))
-      : 0;
-
-    root.style.setProperty("--bg-x", `${20 + progress * 60}%`);
-    root.style.setProperty("--bg-y", `${30 + progress * 25}%`);
-    root.style.setProperty("--bg-x2", `${80 - progress * 60}%`);
-    root.style.setProperty("--bg-y2", `${70 - progress * 25}%`);
-
-    pending = false;
-  }
-
-  function onScroll() {
-    if (!pending) {
-      pending = true;
-      requestAnimationFrame(updateBackground);
-    }
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", updateBackground);
+  // Set the correct initial background position.
   updateBackground();
 })();
